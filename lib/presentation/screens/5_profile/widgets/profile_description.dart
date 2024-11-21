@@ -5,7 +5,7 @@ class Description extends StatelessWidget {
   final TextTheme text;
 
   const Description({
-    super.key, 
+    super.key,
     required this.user,
     required this.text,
   });
