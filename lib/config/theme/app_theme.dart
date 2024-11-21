@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   final bool isDarkMode;
-
   AppTheme({this.isDarkMode = false});
-
   static ThemeData lightTheme() {
     return ThemeData(
       useMaterial3: true,

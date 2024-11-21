@@ -61,7 +61,8 @@ class DbHelper {
       return id;
     } on DatabaseException catch (e) {
       if (e.isUniqueConstraintError()) {
-        await updateUser(user); // Si hay un error de clave única, actualiza el usuario existente
+        await updateUser(
+            user); // Si hay un error de clave única, actualiza el usuario existente
         return user.id!;
       } else {
         rethrow;

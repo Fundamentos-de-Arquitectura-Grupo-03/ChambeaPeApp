@@ -15,9 +15,11 @@ class CloudApi {
 
   static Future<CloudApi> getInstance() async {
     if (_instance == null) {
-      String json = await rootBundle.loadString('assets/gcloud_credentials.json');
+      String json =
+          await rootBundle.loadString('assets/gcloud_credentials.json');
       _instance = CloudApi._(auth.ServiceAccountCredentials.fromJson(json));
-      _instance!.client = await auth.clientViaServiceAccount(_instance!.credentials, Storage.SCOPES);
+      _instance!.client = await auth.clientViaServiceAccount(
+          _instance!.credentials, Storage.SCOPES);
     }
     return _instance!;
   }
@@ -28,6 +30,7 @@ class CloudApi {
     var storage = Storage(client!, 'chambeape-cloud');
     var bucket = storage.bucket('chambeape-cloud-storage');
     final type = lookupMimeType(name);
-    return await bucket.writeBytes(name, fileBytes, metadata: ObjectMetadata(contentType: type));
+    return await bucket.writeBytes(name, fileBytes,
+        metadata: ObjectMetadata(contentType: type));
   }
 }

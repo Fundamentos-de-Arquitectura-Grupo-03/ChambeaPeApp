@@ -53,10 +53,7 @@ class _OptionsViewState extends ConsumerState<OptionsView> {
           ),
           const Text(
             'Historial de actividad',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w600
-            ),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
           ),
           Expanded(
             child: SingleChildScrollView(

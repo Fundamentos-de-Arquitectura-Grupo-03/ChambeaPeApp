@@ -7,14 +7,13 @@ import 'package:chambeape/services/users/user_works_service.dart';
 import 'package:flutter/material.dart';
 
 class MyWorksDefault extends StatefulWidget {
-
   final TextTheme text;
   final int userId;
   final bool isCurrentUser;
 
   const MyWorksDefault({
     super.key,
-    required this.text, 
+    required this.text,
     required this.userId,
     required this.isCurrentUser,
   });
@@ -29,21 +28,24 @@ class _MyWorksDefaultState extends State<MyWorksDefault> {
   }
 
   Future<UsersWorkImg> _loadUserImages() async {
-    var userImages = await UserWorksService().getImageUrlsByUserId(widget.userId);
+    var userImages =
+        await UserWorksService().getImageUrlsByUserId(widget.userId);
     return userImages;
   }
+
   Future<void> _uploadUserImage(int userId, File? image) async {
     if (image != null) {
       await UserWorksService().uploadUserImage(userId, image);
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text('Mis Trabajos',
-            style: widget.text.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+            style:
+                widget.text.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
         const SizedBox(height: 10),
         SizedBox(
           height: 450,
@@ -59,10 +61,10 @@ class _MyWorksDefaultState extends State<MyWorksDefault> {
                 return const Center(
                   child: _SwiperErrorWidget(),
                 );
-              } else if (!snapshot.hasData || snapshot.data!.imageUrls.isEmpty) {
-                  return const _SwiperErrorWidget();
-              }
-              else {
+              } else if (!snapshot.hasData ||
+                  snapshot.data!.imageUrls.isEmpty) {
+                return const _SwiperErrorWidget();
+              } else {
                 return Swiper(
                   viewportFraction: 0.8,
                   scale: 0.9,
@@ -76,24 +78,25 @@ class _MyWorksDefaultState extends State<MyWorksDefault> {
                   ),
                   itemCount: snapshot.data!.imageUrls.length,
                   itemBuilder: (context, index) {
-                    return _ImageWithContent(index: index, imageUrl: snapshot.data!.imageUrls[index]);
+                    return _ImageWithContent(
+                        index: index,
+                        imageUrl: snapshot.data!.imageUrls[index]);
                   },
                 );
               }
             },
           ),
         ),
-        if (widget.isCurrentUser) 
-        FilledButton.icon(
-          onPressed: () async {
-            await _createUserIfNotExists();
-            File? image = await MediaService().getImageFromGallery();
-            await _uploadUserImage(widget.userId, image);
-            setState(() {});
-          },
-          label: const Text('Agregar Foto'),
-          icon: const Icon(Icons.add_a_photo_outlined)
-        )
+        if (widget.isCurrentUser)
+          FilledButton.icon(
+              onPressed: () async {
+                await _createUserIfNotExists();
+                File? image = await MediaService().getImageFromGallery();
+                await _uploadUserImage(widget.userId, image);
+                setState(() {});
+              },
+              label: const Text('Agregar Foto'),
+              icon: const Icon(Icons.add_a_photo_outlined))
       ],
     );
   }
@@ -164,11 +167,10 @@ class _ImageWithoutContent extends StatelessWidget {
 }
 
 class _ImageWithContent extends StatelessWidget {
-
   final int index;
   final String imageUrl;
   const _ImageWithContent({
-    required this.index, 
+    required this.index,
     required this.imageUrl,
   });
 
