@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+
 class StepperPostState {
   final TextEditingController titleController;
   final TextEditingController descriptionController;
@@ -35,11 +36,11 @@ class StepperPostState {
     int? hasPremium,
     bool? hasImageSelected,
     File? selectedImage,
-
   }) {
     return StepperPostState(
       titleController: titleController ?? this.titleController,
-      descriptionController: descriptionController ?? this.descriptionController,
+      descriptionController:
+          descriptionController ?? this.descriptionController,
       categoryController: categoryController ?? this.categoryController,
       locationController: locationController ?? this.locationController,
       hasNotification: hasNotification ?? this.hasNotification,
