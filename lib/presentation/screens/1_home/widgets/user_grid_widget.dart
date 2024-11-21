@@ -17,8 +17,7 @@ class UserGridWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(
-              vertical: 10.0), // Agrega margen arriba y abajo
+          margin: const EdgeInsets.symmetric(vertical: 10.0),
           child: Text(
             title,
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

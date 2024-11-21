@@ -22,8 +22,8 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    futureEmployers = getEmployers();
     futureWorkers = getWorkers();
+    futureEmployers = getEmployers();
   }
 
   @override

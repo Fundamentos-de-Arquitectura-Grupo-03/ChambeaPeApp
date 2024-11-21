@@ -28,7 +28,12 @@ class _LoginViewState extends State<LoginView> {
           context.goNamed(CustomNavbar.routeName);
         }
       } catch (e) {
-        // TODO Implementar la funcionalidad de mostrar un mensaje de error aquí
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Datos incorrectos"), 
+            backgroundColor: Colors.red,
+          ),
+        );
       }
     }
   }
@@ -96,9 +101,7 @@ class _LoginViewState extends State<LoginView> {
                     },
                   ),
                   TextButton(
-                    onPressed: () {
-                      // TODO Implementar la funcionalidad de recuperación de contraseña aquí
-                    },
+                    onPressed: () {},
                     style: TextButton.styleFrom(
                       foregroundColor: Colors.amber.shade700,
                     ),
