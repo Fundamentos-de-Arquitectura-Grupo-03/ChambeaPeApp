@@ -9,6 +9,7 @@ class CustomRadioListTile<T> extends StatefulWidget {
   final String radioName;
   final ValueChanged<T> onChanged;
 
+  //Constructor
   const CustomRadioListTile({
     super.key,
     required this.label1,

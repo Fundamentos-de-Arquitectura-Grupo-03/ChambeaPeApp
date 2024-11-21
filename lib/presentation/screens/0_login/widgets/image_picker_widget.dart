@@ -6,6 +6,7 @@ class ImagePickerWidget extends StatelessWidget {
   final VoidCallback onTap;
   final File? selectedImage;
 
+  //Constructor
   const ImagePickerWidget({
     super.key,
     required this.onTap,
