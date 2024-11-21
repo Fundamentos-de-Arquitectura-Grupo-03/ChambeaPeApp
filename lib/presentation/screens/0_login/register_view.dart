@@ -1,6 +1,5 @@
-// import 'package:chambeape/infrastructure/models/users.dart';
-import 'dart:io';
 import 'package:chambeape/infrastructure/models/users.dart';
+import 'dart:io';
 import 'package:chambeape/presentation/screens/0_login/widgets/custom_radio_list_tile.dart';
 import 'package:chambeape/presentation/screens/0_login/widgets/image_picker_widget.dart';
 import 'package:chambeape/presentation/shared/enums/enum.dart';
@@ -60,39 +59,39 @@ class _RegisterViewState extends State<RegisterView> {
     }
   }
 
-void _showTermsDialog(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: const Text('Términos y Condiciones'),
-        content: const Stack(
-          children: [
-            Scrollbar(
-              thumbVisibility: true,
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(termsAndConditions),
-                  ],
+  void _showTermsDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Términos y Condiciones'),
+          content: const Stack(
+            children: [
+              Scrollbar(
+                thumbVisibility: true,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(termsAndConditions),
+                    ],
+                  ),
                 ),
               ),
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Aceptar'),
             ),
           ],
-        ),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('Aceptar'),
-          ),
-        ],
-      );
-    },
-  );
-}
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -259,7 +258,8 @@ void _showTermsDialog(BuildContext context) {
                   FilledButton(
                     onPressed: () async {
                       if (_formKey.currentState!.validate() &&
-                          selectedImage != null && tosAccepted) {
+                          selectedImage != null &&
+                          tosAccepted) {
                         Uri profilePicUri = await MediaService()
                             .saveFileToGoogleCloud(selectedImage!);
                         List<String> dateParts =
@@ -299,15 +299,15 @@ void _showTermsDialog(BuildContext context) {
                             ),
                           );
                         });
-                      }
-                      else if(tosAccepted == false) {
+                      } else if (tosAccepted == false) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            content: Text('Por favor acepta los términos y condiciones'),
+                            content: Text(
+                                'Por favor acepta los términos y condiciones'),
+                            backgroundColor: Colors.red,
                           ),
                         );
-                      } 
-                      else if (selectedImage == null) {
+                      } else if (selectedImage == null) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Por favor selecciona una imagen'),
