@@ -16,7 +16,7 @@ class StepperPostNotifier extends StateNotifier<StepperPostState> {
           categoryController: TextEditingController(),
           locationController: TextEditingController(),
           formKeyPostDetails: GlobalKey<FormState>(),
-          formKeyPostLocation: GlobalKey<FormState>(), 
+          formKeyPostLocation: GlobalKey<FormState>(),
           hasImageSelected: false,
         ));
 
@@ -60,8 +60,12 @@ class StepperPostNotifier extends StateNotifier<StepperPostState> {
     state.descriptionController.clear();
     state.categoryController.clear();
     state.locationController.clear();
-    
-    state = state.copyWith(selectedImage: null, hasImageSelected: false, hasNotification: false, hasPremium: 0);
+
+    state = state.copyWith(
+        selectedImage: null,
+        hasImageSelected: false,
+        hasNotification: false,
+        hasPremium: 0);
   }
 
   Map<String, dynamic> getAll() {
