@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "174214088803",
+    "project_id": "chambeape-e6840",
+    "storage_bucket": "chambeape-e6840.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174214088803:android:cbf452ed6d08f1ec58d056",
+        "android_client_info": {
+          "package_name": "com.example.chambeape"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWl6vxNn_WdLAWrvJlK60LAME0WQ2N8o4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
